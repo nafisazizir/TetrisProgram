@@ -53,10 +53,14 @@ df_ina_group = df_ina.groupby('month').mean().drop('year', axis=1)
 plt.figure(figsize=(12, 6))
 ax1 = sns.barplot(data=df_ina_group, x=df_ina_group.index, y='precipitation', palette='rocket')
 plt.ylim(150,300) 
+plt.ylabel('precipitation (mm)')
 ax2 = ax1.twinx()
 sns.lineplot(data=df_ina_group.loc[:,['mean_temp', 'max_temp', 'min_temp']],\
                    markers=True, ax=ax2, markersize=10,palette='viridis')
 plt.ylim(20,33)
+plt.ylabel('temperature (celsius)')
+label  = [mth[3:] for mth in df_ina_group.index.unique()]
+ax1.set_xticklabels(label)
 plt.legend(bbox_to_anchor=(1.04, 1), loc='upper left', borderaxespad=0)
 st.pyplot(plt.gcf())
 
