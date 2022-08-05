@@ -119,6 +119,8 @@ plt.figure(figsize=(12, 6))
 sns.barplot(data=df_merge, x=df_merge.index,hue='year',\
                   y='precipitation', palette='rocket')
 plt.ylim(150,310)
+label  = [mth[3:] for mth in df_ina_group.index.unique()]
+ax1.set_xticklabels(label)
 st.pyplot(plt.gcf())
 
 """The pattern of the rainfall from the first decade (1901-1910) and the last decade (2012-2021) 
