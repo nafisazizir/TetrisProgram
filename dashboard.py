@@ -59,6 +59,8 @@ sns.lineplot(data=df_ina_group.loc[:,['mean_temp', 'max_temp', 'min_temp']],\
                    markers=True, ax=ax2, markersize=10,palette='viridis')
 plt.ylim(20,33)
 plt.ylabel('temperature (celsius)')
+label  = [mth[3:] for mth in df_ina_group.index.unique()]
+ax.set_xticklabels(label)
 plt.legend(bbox_to_anchor=(1.04, 1), loc='upper left', borderaxespad=0)
 st.pyplot(plt.gcf())
 
