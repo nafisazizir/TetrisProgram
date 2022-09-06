@@ -177,11 +177,7 @@ corr = st.selectbox(
 
 if corr == 'Electricity vs Mean Temperature':
     plt.figure(figsize=(12, 6))
-    ax1 = sns.lineplot(data=df_avg_annual, x='year', y='mean_temp', color='red', label='mean_temp')
-    plt.legend(bbox_to_anchor=(0.98, 0.1), loc='lower right', borderaxespad=0)
-    ax2 = ax1.twinx()
-    sns.lineplot(data=df_avg_annual, x='year', y='electricity', ax=ax2, label='electricity')
-    plt.legend(bbox_to_anchor=(0.98, 0.03), loc='lower right', borderaxespad=0)
+    sns.regplot(data=df_avg_annual, x='electricity', y='mean_temp')
     st.pyplot(plt.gcf())
 elif corr == 'Forest area vs Mean Temperature':
     plt.figure(figsize=(12, 6))
