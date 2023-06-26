@@ -21,9 +21,9 @@ account as well as explore for any intriguing connections."""
 # 
 df_ina = pd.read_csv('dataset/ina/df_ina.csv', encoding='unicode_escape')
 
-rename = {"Jan":'01_Jan', 'Feb':'02_Feb', 'Mar':'03_Mar', 'Apr':'04_Apr',\
-         'May':'05_May', 'Jun':'06_Jun', 'Jul':'07_Jul', 'Aug':'08_Aug',\
-         'Sep':'09_Sep', 'Oct':'10_Oct', 'Nov':'11_Nov', 'Dec':'12_Dec'}
+rename = {"Jan":'01', 'Feb':'02', 'Mar':'03', 'Apr':'04',\
+         'May':'05', 'Jun':'06', 'Jul':'07', 'Aug':'08',\
+         'Sep':'09', 'Oct':'10', 'Nov':'11', 'Dec':'12'}
 
 for lab, row in df_ina.iterrows():
     df_ina.loc[lab, 'month'] = rename[row['month']]
